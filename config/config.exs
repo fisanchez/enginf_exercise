@@ -16,7 +16,8 @@ config :weather, WeatherWeb.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "47zk1PtVrs01ltSZu9akbgqqHRzj3YG0+oDjqpEjhf3e+nRIwb9NYJCCO5EX5/lg",
   render_errors: [view: WeatherWeb.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Weather.PubSub, adapter: Phoenix.PubSub.PG2]
+  pubsub: [name: Weather.PubSub, adapter: Phoenix.PubSub.PG2],
+  weather_api_key: System.get_env("WEATHER_BIT_API_KEY")
 
 # Configures Elixir's Logger
 config :logger, :console,
