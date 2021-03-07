@@ -1,9 +1,9 @@
 defmodule WeatherWeb.WeatherView do
   use WeatherWeb, :view
 
-  def render("index.json", %{foo: foo}) do
+  def render("index.json", %{data: foo}) do
     %{
-      "foo" => foo
+      "data" => foo
     }
   end
 end
