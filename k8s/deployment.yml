@@ -1,30 +1,22 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: weather-deployment
 spec:
-  replicas: 2
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherapp
   template:
     metadata:
       labels:
-        app: enginf_exercise_web
+        app: weatherapp
     spec:
       containers:
-        - name: enginf_exercise_web
-          image: enginf_exercise_web:latest
-          ports:
-            - containerPort: 8000
-          args: ["foreground"]
-          env:
-            - name: HOST
-              value: "example.com"
-            - name: SECRET_KEY_BASE
-              value: "highlysecretkey"
-            - name: DB_USERNAME
-              value: "postgres"
-            - name: DB_PASSWORD
-              value: "postgres"
-            - name: DB_NAME
-              value: "testdb"
-            - name: DB_HOSTNAME
-              value: "x.x.x.x"
+      - name: weatherapp
+        image: enginf_exercise_web:latest
+        env:
+          - name: WEATHER_BIT_API_KEY
+            value: REPLACE_WITH_KEY
+        ports:
+        - containerPort: 4000
