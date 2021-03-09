@@ -7,6 +7,6 @@ spec:
     app: weatherapp
   ports:
     - protocol: TCP
-      ports: 4000
+      port: 4000
       targetPort: 4000
 
