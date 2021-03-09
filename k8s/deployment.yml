@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weatherapp
+  template:
+    metadata:
+      labels:
+        app: weatherapp
+    spec:
+      containers:
+      - name: weatherapp
+        image: enginf_exercise_web:latest
+        env:
+          - name: WEATHER_BIT_API_KEY
+            value: REPLACE_WITH_KEY
+        ports:
+        - containerPort: 4000
